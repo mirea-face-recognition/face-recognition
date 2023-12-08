@@ -5,11 +5,10 @@ This file contains custom datasets to obtain data used in training.
 import json
 from typing import Dict, List, Optional
 
-import streamlit as st
 from sklearn.metrics.pairwise import cosine_similarity
 from pathlib import Path
 
-from config import FACES_JSON
+from config import FACES_JSON, RECOGNITION_THRESHOLD
 
 
 class FacesData:
@@ -43,4 +42,4 @@ class FacesData:
             return None
         similarities = {name: cosine_similarity([emb], [x]) for name, emb in registered_faces.items()}
         most_similar = max(similarities, key=similarities.get)
-        return most_similar if similarities[most_similar] > 0.7 else None
+        return most_similar if similarities[most_similar] > RECOGNITION_THRESHOLD else None
