@@ -2,10 +2,10 @@
 
 This file contains neural net architecture.
 """
-import face_recognition
+from deepface import DeepFace
 
 
 def compute_embedding(img_path):
-    image = face_recognition.load_image_file(img_path)
-    encoding = face_recognition.face_encodings(image)[0]
-    return encoding.tolist()
+    embedding_objs = DeepFace.represent(img_path=img_path)
+    embedding = embedding_objs[0]["embedding"]
+    return embedding
