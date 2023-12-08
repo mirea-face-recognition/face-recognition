@@ -38,6 +38,6 @@ class FacesData:
         Returns:
             most_similar (str) - full name of most similar person."""
         registered_faces = self.load()
-        similarities = {name: cosine_similarity(emb, x) for name, emb in registered_faces.items()}
-        most_similar, = max(similarities, key=lambda s: s.get)
+        similarities = {name: cosine_similarity([emb], [x]) for name, emb in registered_faces.items()}
+        most_similar = max(similarities, key=similarities.get)
         return most_similar if similarities[most_similar] > 0.7 else None
