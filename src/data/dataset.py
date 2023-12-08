@@ -3,8 +3,9 @@
 This file contains custom datasets to obtain data used in training.
 """
 import json
-from typing import Dict, List
+from typing import Dict, List, Optional
 
+import streamlit as st
 from sklearn.metrics.pairwise import cosine_similarity
 from pathlib import Path
 
@@ -30,7 +31,7 @@ class FacesData:
             registered_faces[name] = embedding
             json.dump(registered_faces, f, ensure_ascii=False)
 
-    def get_most_similar(self, x) -> str:
+    def get_most_similar(self, x) -> Optional[str]:
         """Use cosine similarity to find the most similar embedding.
 
         Args:
@@ -38,6 +39,8 @@ class FacesData:
         Returns:
             most_similar (str) - full name of most similar person."""
         registered_faces = self.load()
+        if not registered_faces:
+            return None
         similarities = {name: cosine_similarity([emb], [x]) for name, emb in registered_faces.items()}
         most_similar = max(similarities, key=similarities.get)
         return most_similar if similarities[most_similar] > 0.7 else None

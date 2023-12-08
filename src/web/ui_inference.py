@@ -14,12 +14,12 @@ from data.dataset import FacesData
 
 
 faces_data = FacesData()
-photo = st.camera_input(label='take a photo')
+photo = st.camera_input(label='Сделайте фото!')
 if photo:
-    image = Image.open(photo)  # preprocess photo before pass it to neural net
+    image = Image.open(photo)
     image.save('src/data/photo.png')
     embedding = compute_embedding('src/data/photo.png')
-    result = faces_data.get_most_similar(embedding)  # call specialized methods to get name with embedding
+    result = faces_data.get_most_similar(embedding)
     if result:
         st.write(result)
     else:
