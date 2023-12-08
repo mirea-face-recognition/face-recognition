@@ -31,13 +31,13 @@ class FacesData:
             json.dump(registered_faces, f, ensure_ascii=False)
 
     def get_most_similar(self, x) -> str:
-        """Use cosine similarity to find the most similar face.
+        """Use cosine similarity to find the most similar embedding.
 
         Args:
             x - embedding of incoming face.
         Returns:
             most_similar (str) - full name of most similar person."""
-        # TODO add threshold for unrecognized faces
         registered_faces = self.load()
-        most_similar, = max(registered_faces.items(), key=lambda e: cosine_similarity([e[1]], [x]))
-        return most_similar
+        similarities = {name: cosine_similarity(emb, x) for name, emb in registered_faces.items()}
+        most_similar, = max(similarities, key=lambda s: s.get)
+        return most_similar if similarities[most_similar] > 0.7 else None
