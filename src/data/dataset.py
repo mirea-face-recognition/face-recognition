@@ -8,7 +8,7 @@ from typing import Dict, List
 from sklearn.metrics.pairwise import cosine_similarity
 from pathlib import Path
 
-from src.config import FACES_JSON
+from config import FACES_JSON
 
 
 class FacesData:
