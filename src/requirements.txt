@@ -1,2 +1,3 @@
 streamlit==1.29
 scikit-learn==1.3.2
+silero==0.4.1
