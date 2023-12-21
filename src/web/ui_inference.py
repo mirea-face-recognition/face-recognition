@@ -9,7 +9,7 @@ from PIL import Image
 
 sys.path.append('C:\\Users\\melik\\PycharmProjects\\face-recognition\\src')
 
-from model.net import compute_embedding
+from model.net import compute_embedding, text2speech
 from data.dataset import FacesData
 
 
@@ -22,6 +22,7 @@ if photo:
     result = faces_data.get_most_similar(embedding)
     if result:
         st.write(result)
+        text2speech(result)
     else:
         full_name = st.text_input(label='ФИО:')
         if st.button('Зарегистрировать'):
