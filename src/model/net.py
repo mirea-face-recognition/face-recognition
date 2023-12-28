@@ -26,7 +26,8 @@ def get_model():
 
 
 def text2speech(text):
-    audio = get_model().apply_tts(text=text,
-                            speaker=SPEAKER,
-                            sample_rate=SAMPLE_RATE)
+    audio = get_model().apply_tts(
+        text=text,
+        speaker=SPEAKER,
+        sample_rate=SAMPLE_RATE)
     sd.play(audio, SAMPLE_RATE)
