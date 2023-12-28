@@ -18,8 +18,8 @@ faces_data = FacesData()
 photo = st.camera_input(label='Сделайте фото!')
 if photo:
     image = Image.open(photo)
-    image.save('data/photo.png')
-    embedding = compute_embedding('data/photo.png')
+    image.save('src/data/photo.png')
+    embedding = compute_embedding('src/data/photo.png')
     result = faces_data.get_most_similar(embedding)
     if result:
         st.write(result)
