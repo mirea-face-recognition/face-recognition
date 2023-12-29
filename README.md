@@ -27,6 +27,9 @@ streamlit run .\src\ui_inference.py
 
 [streamlit-ui_inference.webm](https://github.com/mirea-face-recognition/face-recognition/assets/41271647/c7481f1c-0cd9-4bef-a58f-197442d63f61)
 
+## Дальнейшие планы
+1. Реализовать работу системы в режиме реального времени
+2. Развернуть систему в институте ИТ 
 
 ## Использованные технологии
 - PyTorch
