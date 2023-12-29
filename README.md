@@ -21,8 +21,11 @@ streamlit run .\src\ui_inference.py
 1. Предобученная нейронная сеть вычисляет embedding лица.
 2. Embedding записывается в JSON-файл и соответствует ФИО пользователя.
 
+![face-recognition-pipeline](assets/face-recognition-pipeline.drawio.png)
+
 ## Пример работы
-<здесь будет видео с примером работы>
+
+![video-example](assets/streamlit-ui_inference.webm)
 
 ## Использованные технологии
 - PyTorch
