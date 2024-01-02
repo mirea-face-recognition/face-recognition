@@ -25,6 +25,10 @@ streamlit run .\src\ui_inference.py
 
 ## Пример работы
 
+### Регистрация
+https://github.com/mirea-face-recognition/face-recognition/assets/41271647/d6109e32-678d-43d8-8251-2d19e1509890
+
+### Распознавание
 [streamlit-ui_inference.webm](https://github.com/mirea-face-recognition/face-recognition/assets/41271647/c7481f1c-0cd9-4bef-a58f-197442d63f61)
 
 ## Дальнейшие планы
